@@ -130,15 +130,15 @@ export const InvestorDashboard: React.FC = () => {
           </CardBody>
         </Card>
         
-        <Card className="bg-accent-50 border border-accent-100">
-          <CardBody>
-            <div className="flex items-center">
-              <div className="p-3 bg-accent-100 rounded-full mr-4">
-                <Users size={20} className="text-accent-700" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-accent-700">Your Connections</p>
-                <h3 className="text-xl font-semibold text-accent-900">
+       <Card className="bg-highlight-50 border border-highlight-100">
+  <CardBody>
+    <div className="flex items-center">
+      <div className="p-3 bg-highlight-100 rounded-full mr-4">
+        <Users size={20} className="text-highlight-700" />
+      </div>
+      <div>
+        <p className="text-sm font-medium text-highlight-700">Your Connections</p>
+        <h3 className="text-xl font-semibold text-highlight-900">
                   {sentRequests.filter(req => req.status === 'accepted').length}
                 </h3>
               </div>

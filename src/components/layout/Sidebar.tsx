@@ -3,9 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { 
   Home, Building2, CircleDollarSign, Users, MessageCircle, 
-  Bell, FileText, Settings, HelpCircle
+  Bell, FileText, Settings, HelpCircle, Calendar
 } from 'lucide-react';
-
 interface SidebarItemProps {
   to: string;
   icon: React.ReactNode;
@@ -19,8 +18,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ to, icon, text }) => {
       className={({ isActive }) => 
         `flex items-center py-2.5 px-4 rounded-md transition-colors duration-200 ${
           isActive 
-            ? 'bg-primary-50 text-primary-700' 
-            : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+  ? 'bg-highlight-50 text-highlight-700 border-l-4 border-highlight-500' 
+  : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
         }`
       }
     >
@@ -42,6 +41,7 @@ export const Sidebar: React.FC = () => {
     { to: '/investors', icon: <CircleDollarSign size={20} />, text: 'Find Investors' },
     { to: '/messages', icon: <MessageCircle size={20} />, text: 'Messages' },
     { to: '/notifications', icon: <Bell size={20} />, text: 'Notifications' },
+    { to: '/calendar', icon: <Calendar size={20} />, text: 'Calendar' },
     { to: '/documents', icon: <FileText size={20} />, text: 'Documents' },
   ];
   
@@ -51,6 +51,7 @@ export const Sidebar: React.FC = () => {
     { to: '/entrepreneurs', icon: <Users size={20} />, text: 'Find Startups' },
     { to: '/messages', icon: <MessageCircle size={20} />, text: 'Messages' },
     { to: '/notifications', icon: <Bell size={20} />, text: 'Notifications' },
+    { to: '/calendar', icon: <Calendar size={20} />, text: 'Calendar' },
     { to: '/deals', icon: <FileText size={20} />, text: 'Deals' },
   ];
   
