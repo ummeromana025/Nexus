@@ -4,6 +4,7 @@ import { User, CircleDollarSign, Building2, LogIn, AlertCircle } from 'lucide-re
 import { useAuth } from '../../context/AuthContext';
 import { Button } from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
+import { OTPVerification } from '../../components/ui/OTPVerification';
 import { UserRole } from '../../types';
 
 export const LoginPage: React.FC = () => {
@@ -12,24 +13,34 @@ export const LoginPage: React.FC = () => {
   const [role, setRole] = useState<UserRole>('entrepreneur');
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [showOTP, setShowOTP] = useState(false);
   
   const { login } = useAuth();
   const navigate = useNavigate();
   
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError(null);
-    setIsLoading(true);
-    
-    try {
-      await login(email, password, role);
-      // Redirect based on user role
-      navigate(role === 'entrepreneur' ? '/dashboard/entrepreneur' : '/dashboard/investor');
-    } catch (err) {
-      setError((err as Error).message);
-      setIsLoading(false);
-    }
-  };
+  e.preventDefault();
+  setError(null);
+  setIsLoading(true);
+  
+  try {
+    await login(email, password, role);
+    setIsLoading(false);
+    setShowOTP(true);
+  } catch (err) {
+    setError((err as Error).message);
+    setIsLoading(false);
+  }
+};
+
+const handleOTPVerify = () => {
+  setShowOTP(false);
+  navigate(role === 'entrepreneur' ? '/dashboard/entrepreneur' : '/dashboard/investor');
+};
+
+const handleOTPCancel = () => {
+  setShowOTP(false);
+};
   
   // For demo purposes, pre-filled credentials
   const fillDemoCredentials = (userRole: UserRole) => {
@@ -205,6 +216,10 @@ export const LoginPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {showOTP && (
+        <OTPVerification onVerify={handleOTPVerify} onCancel={handleOTPCancel} />
+      )}
     </div>
   );
 };

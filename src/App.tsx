@@ -29,6 +29,7 @@ import { DealsPage } from './pages/deals/DealsPage';
 import { CalendarPage } from './pages/calendar/CalendarPage';
 import { VideoCallPage } from './pages/videocall/VideoCallPage';
 import { DocumentChamberPage } from './pages/documentchamber/DocumentChamberPage';
+import { PaymentsPage } from './pages/payments/PaymentsPage';
 
 // Chat Pages
 import { ChatPage } from './pages/chat/ChatPage';
@@ -94,6 +95,10 @@ function App() {
 </Route>
 <Route path="/document-chamber" element={<DashboardLayout />}>
   <Route index element={<DocumentChamberPage />} />
+</Route>
+
+<Route path="/payments" element={<DashboardLayout />}>
+  <Route index element={<PaymentsPage />} />
 </Route>
           
           {/* Chat Routes */}

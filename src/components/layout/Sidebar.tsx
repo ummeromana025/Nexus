@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { 
   Home, Building2, CircleDollarSign, Users, MessageCircle, 
-  Bell, FileText, Settings, HelpCircle, Calendar, Video, FolderLock
+  Bell, FileText, Settings, HelpCircle, Calendar, Video, FolderLock, Wallet
 } from 'lucide-react';
 interface SidebarItemProps {
   to: string;
@@ -44,6 +44,7 @@ export const Sidebar: React.FC = () => {
     { to: '/calendar', icon: <Calendar size={20} />, text: 'Calendar' },
     { to: '/videocall', icon: <Video size={20} />, text: 'Video Call' },
     { to: '/document-chamber', icon: <FolderLock size={20} />, text: 'Document Chamber' },
+    { to: '/payments', icon: <Wallet size={20} />, text: 'Payments' },
     { to: '/documents', icon: <FileText size={20} />, text: 'Documents' },
   ];
   
@@ -56,6 +57,7 @@ export const Sidebar: React.FC = () => {
     { to: '/calendar', icon: <Calendar size={20} />, text: 'Calendar' },
     { to: '/videocall', icon: <Video size={20} />, text: 'Video Call' },
     { to: '/document-chamber', icon: <FolderLock size={20} />, text: 'Document Chamber' },
+    { to: '/payments', icon: <Wallet size={20} />, text: 'Payments' },
     { to: '/deals', icon: <FileText size={20} />, text: 'Deals' },
   ];
   
