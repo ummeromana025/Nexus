@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Menu, X, Bell, MessageCircle, User, LogOut, Building2, CircleDollarSign } from 'lucide-react';
+import { Menu, X, Bell, MessageCircle, User, LogOut, Building2, CircleDollarSign, Calendar, Video, FolderLock, Wallet, FileText, Settings } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { Avatar } from '../ui/Avatar';
 import { Button } from '../ui/Button';
@@ -30,28 +30,57 @@ export const Navbar: React.FC = () => {
     : '/login';
   
   const navLinks = [
-    {
-      icon: user?.role === 'entrepreneur' ? <Building2 size={18} /> : <CircleDollarSign size={18} />,
-      text: 'Dashboard',
-      path: dashboardRoute,
-    },
-    {
-      icon: <MessageCircle size={18} />,
-      text: 'Messages',
-      path: user ? '/messages' : '/login',
-    },
-    {
-      icon: <Bell size={18} />,
-      text: 'Notifications',
-      path: user ? '/notifications' : '/login',
-    },
-    {
-      icon: <User size={18} />,
-      text: 'Profile',
-      path: profileRoute,
-    }
-  ];
-  
+  {
+    icon: user?.role === 'entrepreneur' ? <Building2 size={18} /> : <CircleDollarSign size={18} />,
+    text: 'Dashboard',
+    path: dashboardRoute,
+  },
+  {
+    icon: <Calendar size={18} />,
+    text: 'Calendar',
+    path: '/calendar',
+  },
+  {
+    icon: <Video size={18} />,
+    text: 'Video Call',
+    path: '/videocall',
+  },
+  {
+    icon: <FolderLock size={18} />,
+    text: 'Document Chamber',
+    path: '/document-chamber',
+  },
+  {
+    icon: <Wallet size={18} />,
+    text: 'Payments',
+    path: '/payments',
+  },
+  {
+    icon: <MessageCircle size={18} />,
+    text: 'Messages',
+    path: user ? '/messages' : '/login',
+  },
+  {
+    icon: <Bell size={18} />,
+    text: 'Notifications',
+    path: user ? '/notifications' : '/login',
+  },
+  {
+    icon: <FileText size={18} />,
+    text: user?.role === 'entrepreneur' ? 'Documents' : 'Deals',
+    path: user?.role === 'entrepreneur' ? '/documents' : '/deals',
+  },
+  {
+    icon: <User size={18} />,
+    text: 'Profile',
+    path: profileRoute,
+  },
+  {
+    icon: <Settings size={18} />,
+    text: 'Settings',
+    path: '/settings',
+  }
+];
   return (
     <nav className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

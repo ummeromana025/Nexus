@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { AppTour } from './components/ui/AppTour';
 
 // Layouts
 import { DashboardLayout } from './components/layout/DashboardLayout';
@@ -37,7 +38,8 @@ import { ChatPage } from './pages/chat/ChatPage';
 function App() {
   return (
     <AuthProvider>
-      <Router>
+  <AppTour />
+  <Router>
         <Routes>
           {/* Authentication Routes */}
           <Route path="/login" element={<LoginPage />} />

@@ -75,13 +75,20 @@ export const Sidebar: React.FC = () => {
         <div className="flex-1 py-4 overflow-y-auto">
           <div className="px-3 space-y-1">
             {sidebarItems.map((item, index) => (
-              <SidebarItem
-                key={index}
-                to={item.to}
-                icon={item.icon}
-                text={item.text}
-              />
-            ))}
+  <div key={index} className={
+    item.to === '/dashboard/entrepreneur' || item.to === '/dashboard/investor' ? 'tour-dashboard' :
+    item.to === '/calendar' ? 'tour-calendar' :
+    item.to === '/videocall' ? 'tour-videocall' :
+    item.to === '/document-chamber' ? 'tour-documents' :
+    item.to === '/payments' ? 'tour-payments' : ''
+  }>
+    <SidebarItem
+      to={item.to}
+      icon={item.icon}
+      text={item.text}
+    />
+  </div>
+))}
           </div>
           
           <div className="mt-8 px-3">
